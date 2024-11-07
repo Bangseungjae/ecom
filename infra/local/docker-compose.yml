@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  mysql:
+    image: mysql:8.0 # mysql:8 대신, mysql:8.0을 사용해주세요!
+    container_name: ecom-mysql
+    environment:
+      MYSQL_DATABASE: ecom
+      MYSQL_ROOT_PASSWORD: sj991209
+    ports:
+      - "3307:3306"
+    volumes:
+      - "../db/rdb:/var/lib/mysql"

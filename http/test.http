@@ -1,0 +1,63 @@
+### Register
+POST localhost:8080/api/v1/register
+Content-Type: application/json
+
+{
+  "email": "me@me.com",
+  "password": "asd",
+  "firstName": "tiago",
+  "lastName": "user"
+}
+
+### Login
+POST localhost:8080/api/v1/login
+Content-Type: application/json
+
+{
+  "email": "me@me.com",
+  "password": "asd"
+}
+> {% client.global.set("auth_token", response.body.token); %}
+
+### Get Products
+GET localhost:8080/api/v1/products
+Content-Type: application/json
+
+### Post product
+POST localhost:8080/api/v1/products
+Content-Type: application/json
+Authorization: {{auth_token}}
+
+{
+  "name": "product-1",
+  "description": "description-1",
+  "image": "img.png-1",
+  "price": 15000,
+  "quantity": 3
+}
+
+### Get product by id
+GET localhost:8080/api/v1/products/1
+Content-Type: application/json
+
+### Get product All
+GET localhost:8080/api/v1/products
+Content-Type: application/json
+
+### Post cart
+POST localhost:8080/api/v1//cart/checkout
+Content-Type: application/json
+Authorization: {{auth_token}}
+
+{
+  "items": [
+    {
+      "productID": 1,
+      "quantity": 5
+    },
+    {
+      "productID": 2,
+      "quantity": 1
+    }
+  ]
+}
